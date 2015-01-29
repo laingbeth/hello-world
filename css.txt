@@ -1,0 +1,167 @@
+css.txt
+
+css - cascading style sheets
+provide direction on how things should look
+
+html -- nouns
+css - adjectives
+js -- verbs
+
+selector  property  value
+   p       {color :  black; }
+   			property and value together called a declaration
+this piece of direction is called a rule 
+{ } - represent a block; this is the declaration block
+selection - what part of html is being styled
+
+
+
+css can go: 
+- inline - as an attribute in the line of html
+- in the head - style tags in the header
+- in a separate file - link separate css file
+
+best practice; separation of concerns - separate file of css
+
+in-line will take priority since it is closest to the source but best practice is still separate file. 
+
+link from head: 
+<link rel="stylesheet" href="style.css">
+
+type="text/css" -- good to include 
+
+p {
+	color: red;
+	font-weight: bold;
+}
+
+style.min.css -- take away white space (minifiied file) will optimize file transmission time
+(use map to debug after deployment (don't use maps in production))
+
+javascript will be minified as well -- if use coffeescript will have to translate to js and minimification.... so will still need map to debug
+
+colors -- 
+- can use keywords (but not best pracice)
+- hex codes (#RRGGBB _ range is 0 to F for how much of each color to have) - 256 shades per color
+- rgb color values RGB(0,0,0) (range is 0 to 255)
+- RGBa adds a 4th value called "alpha" which sents opacity to the color; between 0 and 1
+-- opacity is also a separate property
+- HSL colors specifies colors using hue, saturation and lightness (also has HSLa)
+p {
+	color: rgb(0,0,0);
+}
+
+Fonts -- 
+font-family -- sets for 
+
+body {
+	font-family: "Georgia", serif;
+}
+
+serif - includes decoration; sans serif, no decoration
+12 browser-safe fonts across all browsers (list on W3schools.com)
+
+Google Fonts:
+google.com/fonts
+
+CDN - content delivery network
+
+BOX MODEL
+every element in web design in a box
+http://www.w3schools.com/css/css_boxmodel.asp
+width = width + padding-left + padding-right + border-left + border-right
+height = height + padding-top + padding-bottom + border-top + border-bottom
+adds padding, border and margin -- can check in the inspector
+use border as a decoration; margin and padding for space
+
+CSS organization systems:
+SMACSS, OOCSS, BEM 
+
+Box model -- sortcuts
+if you have one margin value it will be applied to all four sides
+ex: margin 10px will be applied to all sides
+p{
+	margin: 10px;
+}
+p {
+margin: 5px 10px;	
+}
+5 on top and bottom, 10 on sides
+order reads: top, right, bottom, left if have four different values for the margins 
+
+can also specify one specific area -- ie, padding-left: 10px;
+
+nested selectors:
+ex: <blockquote>
+			<p> example here</p>
+	</>blockquote</>
+
+	blockquote p {
+	put style info here
+	color: #456789;
+	font-style: bold;
+	}
+
+	pseudo class -- within a class, select something to apply to only part of the class
+	nav ul:first child {
+	xxxxxxxx style info herexxxxx
+	}
+	uses : to designate
+
+section off content:
+div (block manipulation)
+span (inline manipulation)
+
+block tags -- p, ul, div, header, footer, article, all h tags. divas, like to be on own line!
+inline - a, img, span
+
+class and id:
+can target specific elements on page; call add class or id to any html tag and override css rules applied to that tag
+
+class -- can reuse, 
+example: set up classes, news, weather and sports
+.news, .weather, .sport -- in css file
+
+within element itself: <h1 class="news"> in the html
+in css file: .news {
+	font-family: "Times";
+	XXXXXX other style specifics
+}
+
+id -- use once (priority over class in styling)
+# style
+in css file shows up as:
+#ballgate {
+	info goes here
+}
+
+website: codepen.io (can play with html/css -- and save them to use)
+USE class most of the time; rarely use id
+
+you can chain classes together
+
+specificity -- elements actual computed style
+
+composite selectors: 
+
+floats- css positioning property, can lay out webpage in non-linear stacking structure
+float left or right -- if you float left or right, will turn it into an inline ... must clear the float or will impact further elements using "clear"
+ex: clear: both;
+.clear {
+	clear: both;
+}
+or in html:  <div class="clear">&nbsp;</div> -- creates a clear space
+
+positioning:  4 attributes
+static (default)
+absolute
+relative
+fixed
+
+****** BEST PRACTICES ************
+put css in separate file
+only use class and tag selectors wherever possible
+avoid using !important
+alaphabetize style rules for ease of evaluating (or organize somehow)
+
+
